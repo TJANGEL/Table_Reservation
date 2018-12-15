@@ -1,9 +1,9 @@
 var waitListArray = [
   {
-    customerName: "",
-    customerEmail: "",
-    phoneNumber: "",
-    customerID: ""
+    customerName: "John",
+    customerEmail: "Smith",
+    phoneNumber: "123 456 7890",
+    customerID: "134"
   }
 ];
 
