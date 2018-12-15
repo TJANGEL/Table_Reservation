@@ -11,9 +11,14 @@ module.exports = function(app) {
         newcustomer.routeName = newcustomer.name.replace(/\s+/g, "").toLowerCase();
       
         console.log(newcustomer);
-      
-        characters.push(newcustomer);
-      
+        if (tableArray.length < 5){
+        tableArray.push(newcustomer);
+        
         res.json(newcustomer);
+        }
+        else {
+            waitListArray.push(newcustomer);
+            res.json(newcustomer);
+        }
       });
 };
