@@ -23,14 +23,14 @@
     <div class="container">
 
 		<div class="jumbotron">
-			<h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Group 4's Restaurant</h1>
+			<h1 class="text-center"><span></span> Group 4's Restaurant</h1>
 			<hr>
 			<h2 class="text-center">Make a reservation</h2>
 			<br>
 
 			<div class="text-center">
-				<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
-				<a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+				<a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span></span> View Tables</button></a>
+				<a href="/"><button type="button" class="btn btn-lg btn-default"><span"></span></button></a>
 			</div>
 		</div>
 
@@ -84,5 +84,36 @@
 
   <script type="text/javascript">
   
+	// on click function
+	$(".submit").on("click", function(){
+  
+	// log input fields
+	  var newReservation = {
+			  customerName: $('#reservation_name').val().trim(),
+			  phoneNumber: $('#reservation_phone').val().trim(),
+			  customerEmail: $('#reservation_email').val().trim(),
+			  customerID: $('#reservation_uniqueID').val().trim()
+		  };
+		  console.log(newReservation);
+  
+		  var currentURL = window.location.origin;
+		  $.post(currentURL + "/api/tables", newReservation,
+		  function(data){
+			  if(data == true){
+				  alert("You are Booked!")
+			  }
+			  if(data == false){
+				  alert("Sorry, there are no tables available. You are waitlisted")
+			  }
+  
+			  $('#reservation_name').val("");
+			  $('#reservation_phone').val("");
+			  $('#reservation_email').val("");
+			  $('#reservation_uniqueID').val("");
+		  });
+  return false;
+  
+		});
   </script>
+
 </html>
