@@ -1,4 +1,4 @@
-var waitListArray = [
+var waitingArray = [
   {
     customerName: "John",
     customerEmail: "Smith",
@@ -7,4 +7,4 @@ var waitListArray = [
   }
 ];
 
-module.exports = waitListArray;
+module.exports = waitingArray;
